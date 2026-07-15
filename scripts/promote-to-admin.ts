@@ -57,8 +57,12 @@ async function promoteToAdmin() {
       process.exit(1);
     }
 
-    // ✅ Get the document reference
     const userDoc = userQuery.docs[0];
+    if (!userDoc) {
+      console.error(`❌ No user found with email: ${email}`);
+      process.exit(1);
+    }
+
     const userData = userDoc.data();
 
     // Update the user's role
