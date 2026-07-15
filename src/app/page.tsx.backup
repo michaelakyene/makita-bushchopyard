@@ -1,0 +1,8 @@
+export default function HomePage() {
+  return (
+    <main className="flex min-h-screen flex-col items-center justify-center gap-2 px-6 text-center">
+      <h1 className="font-display text-4xl font-bold text-ink">Makita Bush Chopyard</h1>
+      <p className="text-taupe">Menu and ordering flow land in Phase 3. Auth is up first.</p>
+    </main>
+  );
+}
