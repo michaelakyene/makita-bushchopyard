@@ -39,8 +39,10 @@ async function createDefaultAdmin() {
       .limit(1)
       .get();
 
-    if (!adminCheck.empty) {
-      const adminData = adminCheck.docs[0].data();
+    const existingAdmin = adminCheck.docs[0];
+
+    if (existingAdmin) {
+      const adminData = existingAdmin.data();
       console.log("✅ Admin already exists.");
       console.log(`   👤 Email: ${adminData.email}`);
       console.log(`   📅 Created: ${adminData.createdAt?.toDate?.() || "N/A"}`);

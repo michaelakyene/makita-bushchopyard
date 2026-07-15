@@ -39,14 +39,16 @@ async function resetAdmin() {
       .limit(1)
       .get();
 
-    if (adminQuery.empty) {
+    const adminDoc = adminQuery.docs[0];
+
+    if (!adminDoc) {
       console.error("❌ No admin account found in Firestore.");
       console.log("   Run: npm run create-admin");
       process.exit(1);
+      return;
     }
 
     // ✅ Get the document reference and data
-    const adminDoc = adminQuery.docs[0];
     const adminData = adminDoc.data();
     const uid = adminData.uid;
 
